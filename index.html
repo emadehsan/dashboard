@@ -3,11 +3,30 @@
 	<title>Dashboard</title>
 	<script src="angular.js"></script>
 	<script src="angular-route.js"></script>
+	<script src="jquery.min.js"></script>
 	<script src="script.js"></script>
+		<!-- fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
+	<!-- <link href='Play/Play-Regular.ttf' rel='stylesheet' type='application/x-font-ttf'> -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
 </head>
 <body>
 
 	<div>Dashboard Views</div>
+	<br>
+	<div class="container">
+		<ng-view></ng-view>
+	</div>
+
+	<a href="#calendar" target="_self" >Calendar</a>
+	<br>
+	<a href="#clock">Clock</a>
+	<br>
+	<a href="#weather">Weather</a>
+	
 
 </body>
 </html>

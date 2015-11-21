@@ -1,3 +1,14 @@
-<div class="">
-    Calendar
+<div class="calendar table-responsive" >
+    <table class="table info">
+    	<thead class="calendar-controls">
+    		<td><a class="prev-month btn btn-default" target="_self" href="#calendar" onclick="prevMonth()"><</a></td>
+    		<td colspan="5" class="month-name col-md-8">{{monthName}}</td>
+    		<td><a class="next-month btn btn-default" target="_self" href="#calendar" onclick="nextMonth()">></a></td>
+    	</thead>
+    	<tbody>
+    		<tr ng-repeat="week in month track by $index">
+    			<td ng-repeat="day in week track by $index">{{day}}</td>
+    		</tr>
+    	</tbody>
+    </table>
 </div>

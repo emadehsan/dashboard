@@ -1,0 +1,56 @@
+* {
+	/*font-family: 'Oswald', sans-serif;*/
+	/*font-family: 'Indie Flower', cursive;*/
+	font-family: 'Play', sans-serif;
+}
+
+.container {
+	margin: auto;
+}
+
+/*table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 8px;
+}
+table tr:nth-child(odd)	{
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}*/
+table tr:first-child {
+	font-weight: bold;
+}
+
+.calendar {
+	border: 1px solid red;
+}
+.calendar table {
+	margin: auto;
+}
+
+.calendar-controls {
+	text-align: center;
+}
+
+.prev-month button, .next-month button{
+	border-radius: 
+}
+
+/**
+* Clock Styling
+*/
+
+.clock {
+	border: 1px solid red;
+}
+
+.clock div {
+	margin: auto;
+}
+#time {
+	font-size: 200%;
+	text-align: center;
+	/*border: 1px solid green;*/
+}
