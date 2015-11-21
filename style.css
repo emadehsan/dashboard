@@ -46,11 +46,49 @@ table tr:first-child {
 	border: 1px solid red;
 }
 
-.clock div {
-	margin: auto;
-}
 #time {
 	font-size: 200%;
 	text-align: center;
 	/*border: 1px solid green;*/
+}
+
+#clock {
+  position: relative;
+  /*max-width: 600px;*/
+  /*max-height: 600px;*/
+  margin: 20px auto 0 auto;
+  /*background: url(imgs/clockface.jpg);*/
+  background-image: url('imgs/clockback.jpg');
+  list-style: none;
+}
+
+#sec, #min, #hour {
+  position: absolute;
+  width: 30px;
+  height: 600px;
+  top: 0px;
+  left: 285px;
+}
+
+#sec {
+  background: url(imgs/sechand.png);
+  z-index: 3;
+}
+   
+#min {
+  background: url(imgs/minhand.png);
+  z-index: 2;
+}
+   
+#hour {
+  background: url(imgs/hourhand.png);
+  z-index: 1;
+}
+
+#sec {
+ /*  -webkit-transform: rotate(45deg);
+   -moz-transform: rotate(45deg);
+   -ms-transform: rotate(45deg);
+   -o-transform: rotate(45deg);*/
+	transform: rotate(45deg);
 }
