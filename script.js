@@ -10,6 +10,9 @@ var h;
 var m;
 var s;
 
+var weatherSituation;
+var prevWeather;
+
 var d = new Date();
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -23,6 +26,7 @@ currMonth = months[calMonth] + ' ' + calYear;
 
 initMonth(calYear, calMonth);
 updateClockTime();
+updateWeather();
 
 // Angular App object
 var dashApp;
@@ -30,6 +34,10 @@ dashApp = angular.module("dashApp", ['ngRoute']);
  
 dashApp.config(function($routeProvider) {
     $routeProvider
+        .when('/', {
+            templateUrl: 'welcome.html',
+            controller: 'WelcomeController'
+        })
         .when('/calendar', {
             templateUrl: 'calendar.html',
             controller: 'CalendarController'
@@ -47,6 +55,8 @@ dashApp.config(function($routeProvider) {
         });
 });
 
+dashApp.controller('WelcomeController', ['$scope', function($scope) {
+}]);
 
 dashApp.controller('CalendarController', ['$scope', function($scope) {
     $scope.month = month;
@@ -58,6 +68,9 @@ dashApp.controller('CalendarController', ['$scope', function($scope) {
 
 dashApp.controller('ClockController', ['$scope', function($scope) {
     $scope.time = time;
+    $scope.h = h;
+    $scope.m = m;
+    $scope.s = s;
 }]);
 
 dashApp.controller('WeatherController', ['$scope', function($scope) {
@@ -166,9 +179,13 @@ function updateClockTime() {
     s = makeDoubleDig(day.getSeconds());
     
     time = h + ":" + m + ":" + s;
+    // time = '<span id="h">' + h + '</span id="m">:<span>' + m + '</span>:<span id="s">' + s + '</span>';
+
     // console.log(time);
     $("#time").text(time);
-    var t = setTimeout(updateClockTime, 500);
+    if (prevWeather !== weatherSituation)
+        $("#temp").text(weatherSituation);
+    var t = setTimeout(updateClockTime, 200);
 }
 
 function makeDoubleDig(i) {
@@ -179,35 +196,32 @@ function makeDoubleDig(i) {
 }
 
 
-function analogClock() {
- 
-    setInterval( function() {
-        var seconds = new Date().getSeconds();
-        var sdegree = seconds * 6;
-        var srotate = "rotate(" + sdegree + "deg)";
+/**
+* Weatther Methods
+*/
+function updateWeather()
+{
+    $.ajax({
+        dataType: 'json',
+        url: 'http://api.openweathermap.org/data/2.5/weather?q=Islamabad,pk&appid=2de143494c0b295cca9337e1e96b00e0',
+        success: function(result) {
+            var desc = result.weather[0].main;
+            var temp = Math.round(result.main.temp - 273.16, 3);
 
-        $("#sec").css({ "transform": srotate });
-
-    }, 1000 );
-      
-    setInterval( function() {
-        var hours = new Date().getHours();
-        var mins = new Date().getMinutes();
-        var hdegree = hours * 30 + (mins / 2);
-        var hrotate = "rotate(" + hdegree + "deg)";
-
-        $("#hour").css({ "transform": hrotate});
-          
-    }, 1000 );
-
-    setInterval( function() {
-        var mins = new Date().getMinutes();
-        var mdegree = mins * 6;
-        var mrotate = "rotate(" + mdegree + "deg)";
-
-        $("#min").css({ "transform" : mrotate });
-          
-    }, 1000 );
+            prevWeather = weatherSituation;
+            weatherSituation = temp + 'C ' + desc;
+        }
+    })
 }
 
-analogClock();
+function hideX() {
+    // $("#x").hide();
+    $("#x").css('visibility', 'hidden');
+    // console.log('hide');
+}
+
+function showX() {
+    // $("#x").show();
+    $("#x").css('visibility', 'visible');
+    // console.log('show');
+}

@@ -6,27 +6,32 @@
 	<script src="jquery.min.js"></script>
 	<script src="script.js"></script>
 		<!-- fonts -->
-	<link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Play|Poiret+One|Slabo+27px' rel='stylesheet' type='text/css'>
 	<!-- <link href='Play/Play-Regular.ttf' rel='stylesheet' type='application/x-font-ttf'> -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 </head>
 <body>
 
-	<div>Dashboard Views</div>
-	<br>
 	<div class="container">
+		<h1 class="title">Dashboard</h1>
+
+		<div class="links">
+			<a href="#calendar" target="_self" onclick="showX()">Calendar</a>
+			<a href="#clock" onclick="showX()">Clock</a>
+			<a href="#weather" target="_self" onclick="showX()">Weather</a>
+			<a href="#" target="_self" id="x" onclick="hideX()">x</a>
+		</div>
+
+		<hr>
+	
 		<ng-view></ng-view>
 	</div>
 
-	<a href="#calendar" target="_self" >Calendar</a>
-	<br>
-	<a href="#clock" onclick="analogClock">Clock</a>
-	<br>
-	<a href="#weather">Weather</a>
-	
+
 
 </body>
 </html>

@@ -2,10 +2,19 @@
 	/*font-family: 'Oswald', sans-serif;*/
 	/*font-family: 'Indie Flower', cursive;*/
 	font-family: 'Play', sans-serif;
+	/*font-family: 'Poiret One', cursive;*/
 }
 
 .container {
-	margin: auto;
+	padding: 5%;
+	margin: 5%;
+	margin-top: 0%;
+}
+
+.links a {
+	font-size: 200%;
+	padding-right: 10%;
+	color: #e74c3c;
 }
 
 /*table, th , td  {
@@ -24,7 +33,7 @@ table tr:first-child {
 }
 
 .calendar {
-	border: 1px solid red;
+	/*border*/: 1px solid red;
 }
 .calendar table {
 	margin: auto;
@@ -34,61 +43,51 @@ table tr:first-child {
 	text-align: center;
 }
 
-.prev-month button, .next-month button{
-	border-radius: 
-}
-
 /**
 * Clock Styling
 */
 
 .clock {
-	border: 1px solid red;
+	/*border*/: 1px solid red;
+	font-size: 300%;
+	font-family: 'Poiret One', cursive;
 }
 
 #time {
-	font-size: 200%;
+	font-size: 300%;
 	text-align: center;
+	font-family: 'Poiret One', cursive;
 	/*border: 1px solid green;*/
 }
 
-#clock {
-  position: relative;
-  /*max-width: 600px;*/
-  /*max-height: 600px;*/
-  margin: 20px auto 0 auto;
-  /*background: url(imgs/clockface.jpg);*/
-  background-image: url('imgs/clockback.jpg');
-  list-style: none;
+
+/**
+* Weather styling
+*/
+
+.weather {
+    /*border*/: 1px solid red;
+    font-size: 300%;
+    font-family: 'Slabo 27px', serif;
 }
 
-#sec, #min, #hour {
-  position: absolute;
-  width: 30px;
-  height: 600px;
-  top: 0px;
-  left: 285px;
+#temp {
+	font-size: 300%;
+	font-family: 'Slabo 27px', serif;
+	text-align: center;
 }
 
-#sec {
-  background: url(imgs/sechand.png);
-  z-index: 3;
-}
-   
-#min {
-  background: url(imgs/minhand.png);
-  z-index: 2;
-}
-   
-#hour {
-  background: url(imgs/hourhand.png);
-  z-index: 1;
+/**
+* Welcome Styling
+*/
+.welcome {
+	font-size: 900%;
+	font-family: 'Poiret One', cursive;
 }
 
-#sec {
- /*  -webkit-transform: rotate(45deg);
-   -moz-transform: rotate(45deg);
-   -ms-transform: rotate(45deg);
-   -o-transform: rotate(45deg);*/
-	transform: rotate(45deg);
+#x {
+	/*this is link to welcome screen*/
+	visibility: hidden;
+	float: right;
+	text-decoration: none;
 }
