@@ -1,6 +1,8 @@
-## dashboard
-A dashboard containing Clock, Calendar &amp; Weather plugin.
+## Dashboard
+A Dashboard App comprising of Clock, Calendar &amp; Weather plugin.
 
+# IMPORTANT
+	Use HTTP server (XAMP stack on local machines) to View the Documents. Because AngularJS Route work on HTTP protocol.
 # Libraries used:
 	* AngularJS
 	* AngularJS Route
